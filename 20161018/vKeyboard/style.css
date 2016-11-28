@@ -1,0 +1,19 @@
+
+#vkeyboard {
+    display: none;
+}
+
+.key {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: azure;
+}
+
+.key-blank{
+    width: 50px;
+}
+
+.key:hover {
+    background-color: antiquewhite;
+}

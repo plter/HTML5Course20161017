@@ -1,0 +1,22 @@
+
+.menu {
+    position: fixed;
+    display: none;
+    background-color: antiquewhite;
+}
+
+.menu .item:hover {
+    background-color: brown;
+}
+
+#rect {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+
+#rect1 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}

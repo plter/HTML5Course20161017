@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .alert {
+            color: red;
+        }
+    </style>
+
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<form id="login-form">
+    <div class="alert main-alert"></div>
+    <table>
+        <tbody>
+        <tr>
+            <td>
+                用户名：
+            </td>
+            <td>
+                <input type="text" name="user" required="required">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码：
+            </td>
+            <td>
+                <input type="password" name="pass" required="required">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="登陆">
+</form>
+
+<script src="login.js"></script>
+</body>
+</html>

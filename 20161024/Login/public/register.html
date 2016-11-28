@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+
+    <style>
+        .alert-msg {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<form id="register-form">
+    <div class="alert-msg main-alert"></div>
+    <table>
+        <tbody>
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" name="user" required="required"></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="pass" required="required"></td>
+        </tr>
+        <tr>
+            <td>密码确认：</td>
+            <td><input type="password" name="pass-confirm" required="required"></td>
+            <td>
+                <div class="pass-confirm alert-msg"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="提交">
+</form>
+
+<script src="register.js"></script>
+</body>
+</html>

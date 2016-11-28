@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="jquery.min.js"></script>
+    <script src="libs/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="jquery.plugin.contextmenu.js"></script>
+</head>
+<body>
+
+<div id="rect">
+
+</div>
+
+<ul id="rect-menu" class="menu">
+    <!--<div class="item"><a href="http://ucai.cn">Item 1</a></div>-->
+    <!--<div class="item"><a href="#">Item 2</a></div>-->
+    <!--<div class="item"><a href="#">Item 3</a></div>-->
+
+    <!--<li><a href="http://ucai.cn">ucai</a></li>-->
+    <!--<li><a href="http://google.com">google</a></li>-->
+    <!--<li><a href="http://github.com">github</a></li>-->
+    <li>
+        <div><a href="http://ucai.cn">ucai</a></div>
+    </li>
+    <li>
+        <div><a href="http://google.com">google</a></div>
+    </li>
+    <li>
+        <div>常用网址</div>
+        <ul>
+            <li>
+                <div><a href="http://qq.com">QQ</a></div>
+            </li>
+            <li>
+                <div><a href="http://mail.163.com">163邮箱</a></div>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <div><a href="http://github.com">github</a></div>
+    </li>
+</ul>
+
+<div id="rect1">
+
+</div>
+
+<div id="rect1-menu" class="menu">
+    <div class="item"><a href="http://ucai.cn">优才</a></div>
+    <div class="item"><a href="#">Item 2</a></div>
+    <div class="item"><a href="#">Item 3</a></div>
+</div>
+
+<script>
+    $(".menu").menu();
+</script>
+<script src="main.js"></script>
+</body>
+</html>

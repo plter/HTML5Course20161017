@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1/jquery-ui.theme.min.css">
+
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+<img src="image.jpeg">
+<button class="btn">Click me</button>
+
+<div id="dialog">Hello</div>
+
+<script>
+    var dialogDiv = $("#dialog").dialog({
+        title: "Hello World",
+        modal: true,
+        autoOpen: false,
+        buttons: [
+            {
+                text: "确认",
+                click: function () {
+                    $(this).dialog("close");
+                }
+            },
+            {
+                text: "取消",
+                click: function () {
+                    $(this).dialog("close");
+                }
+            },
+            {
+                text: "关闭",
+                click: function () {
+                    $(this).dialog("close");
+                }
+            }
+        ]
+    });
+
+    window.alert = function (message, title) {
+        title = title || "";
+        dialogDiv.html(message);
+        dialogDiv.dialog("option", "title", title);
+        dialogDiv.dialog("open");
+    };
+
+
+    $(".btn").button().click(function () {
+        alert("你好，我好，大家好", "重写对话框");
+    });
+
+</script>
+
+
+</body>
+</html>
