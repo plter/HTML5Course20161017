@@ -4,29 +4,45 @@
 
 (function () {
 
-    var obj = document.querySelector("#div-drag-me");
+    var contents;
     var currentDraggedElement;
-    var targetArea = document.querySelector("#target");
+    var rects;
 
-    targetArea.addEventListener("dragover", function (e) {
-        e.preventDefault();
-    });
+    function findElements() {
+        contents = document.querySelectorAll(".content");
+        rects = document.querySelectorAll(".rect");
+    }
 
-    targetArea.addEventListener("drop", function (e) {
-        console.log(e);
-
-        console.log(currentDraggedElement);
-
-        if (currentDraggedElement.parentNode) {
-            currentDraggedElement.parentNode.removeChild(currentDraggedElement);
-            this.appendChild(currentDraggedElement);
+    function addListeners() {
+        var i = 0;
+        for (i = 0; i < contents.length; i++) {
+            contents[i].addEventListener("dragstart", function (e) {
+                currentDraggedElement = this;
+            });
         }
 
-    });
+        for (i = 0; i < rects.length; i++) {
+            var item = rects[i];
+            item.addEventListener("dragover", function (e) {
+                e.preventDefault();
+            });
 
-    obj.addEventListener("dragstart", function (e) {
-        console.log(e);
-        currentDraggedElement = this;
-    });
+            item.addEventListener("drop", function (e) {
+                if (currentDraggedElement) {
+                    if (currentDraggedElement.parentNode) {
+                        currentDraggedElement.parentNode.removeChild(currentDraggedElement);
+                        this.appendChild(currentDraggedElement);
+                    }
+                }
+            });
+        }
+    }
 
+
+    function init() {
+        findElements();
+        addListeners();
+    }
+
+    init();
 })();
