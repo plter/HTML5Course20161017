@@ -3,4 +3,6 @@ node_modules
 .gradle
 build
 jquery.mobile-*
+bower_components
+
 
