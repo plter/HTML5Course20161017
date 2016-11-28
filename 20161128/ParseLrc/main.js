@@ -12,7 +12,6 @@
 
         var p = /\[(\d{2}):(\d{2})\.\d{2}\](.*)/g;
 
-
         var result;
 
         while (result = p.exec(data)) {
