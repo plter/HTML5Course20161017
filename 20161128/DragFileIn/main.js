@@ -10,9 +10,6 @@
         e.preventDefault();
         var self = this;
 
-        // console.log(e.originalEvent.dataTransfer.files);
-
-
         var files = e.originalEvent.dataTransfer.files;
         if (files && files.length) {
             var first = files[0];
