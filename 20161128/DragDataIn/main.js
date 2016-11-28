@@ -4,7 +4,7 @@
 
 (function () {
 
-
+    var area = $("#area");
 
     function tryToReadText(dt) {
         if (dt.types.indexOf("text/plain") > -1) {
