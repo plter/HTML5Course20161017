@@ -8,6 +8,7 @@ var List = require("./List");
 
     var playlistContainer;
     var playlist;
+    var player;
 
     /**
      * 生成播放列表
@@ -25,6 +26,15 @@ var List = require("./List");
         playlist.addFiles(files);
     }
 
+    function playMp3(file) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            player.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+
     function addListeners() {
         $(document).on("dragover", function (e) {
             e.preventDefault();
@@ -33,12 +43,17 @@ var List = require("./List");
 
             generatePlaylist(e.originalEvent.dataTransfer.files);
         });
+
+        playlist.onSelectItem = function (item) {
+            playMp3(item.getFile());
+        }
     }
 
     function buildUI() {
         playlistContainer = $("#playlist-container");
         playlist = new List();
         playlistContainer.append(playlist.getHtmlNode());
+        player = document.querySelector("#player");
     }
 
     function init() {
