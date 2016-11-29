@@ -7,7 +7,7 @@ function ListItem(file) {
 
     this._htmlNode = document.createElement("li");
     this._htmlNode.className = "list-item";
-    this._htmlNode.innerHTML = this._file.name;
+    this._htmlNode.innerHTML = this._file.getNameWithoutExtension();
 
     var self = this;
     this._htmlNode.onclick = function () {
@@ -23,6 +23,16 @@ ListItem.prototype.getHtmlNode = function () {
 
 ListItem.prototype.getFile = function () {
     return this._file;
+};
+
+ListItem.prototype.bindLrc = function (lrc) {
+    this._lrc = lrc;
+
+    this._htmlNode.innerHTML = this._file.getNameWithoutExtension() + "[LRC]";
+};
+
+ListItem.prototype.getLrc = function () {
+    return this._lrc;
 };
 
 module.exports = ListItem;

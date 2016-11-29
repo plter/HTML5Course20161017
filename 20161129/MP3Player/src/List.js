@@ -13,7 +13,7 @@ function List() {
 
 
 List.prototype.hasItem = function (item) {
-    return this._items[encodeURI(item.getFile().name)];
+    return this._items[item.getFile().getUriEncodedName()];
 };
 
 /**
@@ -47,7 +47,7 @@ List.prototype.hasItem = function (item) {
 
 List.prototype.addItem = function (item) {
     if (!this.hasItem(item)) {
-        this._items[encodeURI(item.getFile().name)] = item;
+        this._items[item.getFile().getUriEncodedName()] = item;
         this._htmlNode.appendChild(item.getHtmlNode());
 
         var self = this;
@@ -67,6 +67,14 @@ List.prototype.addFiles = function (files) {
 
 List.prototype.getHtmlNode = function () {
     return this._htmlNode;
+};
+
+/**
+ * 根据不带扩展名的文件名字获取该列表项
+ * @param nameWithoutExtension
+ */
+List.prototype.getItemByNameWithoutExtension = function (nameWithoutExtension) {
+    return this._items[encodeURI(nameWithoutExtension)];
 };
 
 module.exports = List;
