@@ -1,0 +1,6 @@
+{
+  "name": "mp3player",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
