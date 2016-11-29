@@ -4,5 +4,7 @@ node_modules
 build
 jquery.mobile-*
 bower_components
+uploads
+
 
 
