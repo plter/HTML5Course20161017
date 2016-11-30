@@ -18,8 +18,16 @@ router.get('/', function (req, res, next) {
 //     res.render("upload1", {files: req.files});
 // });
 
-router.post("/upload", upload.fields([{name: "file", maxCount: 1}, {name: "image"}]), function (req, res) {
-    res.render("upload2", {files: req.files});
+// router.post("/upload", upload.fields([{name: "file", maxCount: 1}, {name: "image"}]), function (req, res) {
+//     res.render("upload2", {files: req.files});
+// });
+
+router.post("/upload", upload.any(), function (req, res) {
+    res.render("upload3", {files: req.files});
+});
+
+router.post("/hello", upload.none(), function (req, res) {
+    res.render("hello", {args: req.body});
 });
 
 module.exports = router;
