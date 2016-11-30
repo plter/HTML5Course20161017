@@ -8,7 +8,12 @@ router.get('/', function (req, res, next) {
 
 
 router.get("/data", function (req, res) {
-    res.send("callback('Hello " + req.query.name + "')");
+    var callback = "callback";
+    if (req.query.callback) {
+        callback = req.query.callback;
+    }
+
+    res.send(`${callback}("Hello ${req.query.name}")`);
 });
 
 module.exports = router;
