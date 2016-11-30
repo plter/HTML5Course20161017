@@ -14,8 +14,12 @@ router.get('/', function (req, res, next) {
 // });
 
 
-router.post("/upload", upload.array("image"), function (req, res) {
-    res.render("upload1", {files: req.files});
+// router.post("/upload", upload.array("image"), function (req, res) {
+//     res.render("upload1", {files: req.files});
+// });
+
+router.post("/upload", upload.fields([{name: "file", maxCount: 1}, {name: "image"}]), function (req, res) {
+    res.render("upload2", {files: req.files});
 });
 
 module.exports = router;
