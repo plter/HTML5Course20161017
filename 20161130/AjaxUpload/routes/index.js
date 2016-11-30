@@ -11,4 +11,8 @@ router.get("/apis/hello", function (req, res) {
     res.send(`Hello ${req.query.name}`);
 });
 
+router.post("/apis/hello", function (req, res) {
+    res.send(`Hello ${req.body.name}`);
+});
+
 module.exports = router;

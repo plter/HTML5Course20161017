@@ -16,8 +16,15 @@
         xhr.onload = function () {
             resultDiv.innerHTML = xhr.responseText;
         };
-        xhr.open("GET", "/apis/hello?name=" + name);
-        xhr.send();
+
+        //GET
+        // xhr.open("GET", "/apis/hello?name=" + name);
+        // xhr.send();
+
+        //POST
+        xhr.open("POST", "/apis/hello");
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("name=" + name);
     });
 
 })();
