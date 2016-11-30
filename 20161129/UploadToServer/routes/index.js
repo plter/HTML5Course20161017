@@ -8,10 +8,14 @@ router.get('/', function (req, res, next) {
     res.render('index', {title: 'Express'});
 });
 
-router.post("/upload", upload.single("image"), function (req, res) {
-    req.file.url = "uploads/" + req.file.filename;
-    res.render("upload", {file: req.file});
-});
+// router.post("/upload", upload.single("image"), function (req, res) {
+//     req.file.url = "uploads/" + req.file.filename;
+//     res.render("upload", {file: req.file});
+// });
 
+
+router.post("/upload", upload.array("image"), function (req, res) {
+    res.render("upload1", {files: req.files});
+});
 
 module.exports = router;
