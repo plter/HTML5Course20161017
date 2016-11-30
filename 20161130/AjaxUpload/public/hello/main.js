@@ -22,9 +22,13 @@
         // xhr.send();
 
         //POST
+        // xhr.open("POST", "/apis/hello");
+        // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        // xhr.send("name=" + name);
+
+        //POST FormData
         xhr.open("POST", "/apis/hello");
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send("name=" + name);
+        xhr.send(new FormData(this));
     });
 
 })();
