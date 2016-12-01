@@ -5,7 +5,7 @@ var ucai;
 (function (ucai) {
     var FileList = (function () {
         function FileList() {
-            this._files = [];
+            this._fileListItems = [];
             this._htmlNode = document.createElement("ul");
         }
         FileList.prototype.addFiles = function (files) {
@@ -14,12 +14,16 @@ var ucai;
             }
         };
         FileList.prototype.addFile = function (file) {
-            this._files.push(file);
-            this.htmlNode.appendChild(new ucai.FileListItem(file).htmlNode);
+            var item = new ucai.FileListItem(file);
+            this._fileListItems.push(item);
+            this.htmlNode.appendChild(item.htmlNode);
         };
         FileList.prototype.clear = function () {
-            this._files = [];
+            this._fileListItems = [];
             this._htmlNode.innerHTML = "";
+        };
+        FileList.prototype.uploadAll = function () {
+            this._fileListItems.forEach(function (item) { return item.startUpload(); });
         };
         Object.defineProperty(FileList.prototype, "htmlNode", {
             get: function () {

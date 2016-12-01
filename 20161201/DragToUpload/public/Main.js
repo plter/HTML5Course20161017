@@ -2,8 +2,10 @@
 /**
  * Created by plter on 2016/12/1.
  */
+//声明命名空间
 var ucai;
 (function (ucai) {
+    //声明类
     var Main = (function () {
         function Main() {
             this.getElements();
@@ -23,9 +25,11 @@ var ucai;
                 _this.list.clear();
                 _this.list.addFiles(de.dataTransfer.files);
             });
+            this.btnUploadAll.click(function (e) { return _this.list.uploadAll(); });
         };
         Main.prototype.getElements = function () {
             this.dropArea = $("#drop-area");
+            this.btnUploadAll = $("#btn-upload-all");
         };
         return Main;
     }());

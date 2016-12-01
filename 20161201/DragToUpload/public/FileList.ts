@@ -6,7 +6,7 @@ namespace ucai {
 
     export class FileList {
 
-        private _files = [];
+        private _fileListItems = [];
         private _htmlNode: HTMLUListElement;
 
         constructor() {
@@ -20,13 +20,18 @@ namespace ucai {
         }
 
         public addFile(file) {
-            this._files.push(file);
-            this.htmlNode.appendChild(new FileListItem(file).htmlNode);
+            let item = new FileListItem(file);
+            this._fileListItems.push(item);
+            this.htmlNode.appendChild(item.htmlNode);
         }
 
         public clear() {
-            this._files = [];
+            this._fileListItems = [];
             this._htmlNode.innerHTML = "";
+        }
+
+        public uploadAll() {
+            this._fileListItems.forEach(item => item.startUpload());
         }
 
         public get htmlNode(): HTMLUListElement {

@@ -3,11 +3,15 @@
  * Created by plter on 2016/12/1.
  */
 
+//声明命名空间
 namespace ucai {
+
+    //声明类
     class Main {
 
         private dropArea: JQuery;
         private list: FileList;
+        private btnUploadAll: JQuery;
 
         constructor() {
             this.getElements();
@@ -29,10 +33,13 @@ namespace ucai {
                 this.list.clear();
                 this.list.addFiles(de.dataTransfer.files);
             });
+
+            this.btnUploadAll.click(e => this.list.uploadAll());
         }
 
         private getElements() {
             this.dropArea = $("#drop-area");
+            this.btnUploadAll = $("#btn-upload-all");
         }
     }
 
