@@ -5,29 +5,43 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>名字</th>
+            <th>年龄</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i = 0;i < users.length;i++){
+            var user = users[i]; %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.user %></td>
+            <td><%= user.age %></td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
 
-<table border="1">
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>名字</th>
-        <th>年龄</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for(var i = 0;i < users.length;i++){
-        var user = users[i]; %>
-    <tr>
-        <td><%= user.id %></td>
-        <td><%= user.user %></td>
-        <td><%= user.age %></td>
-    </tr>
-    <% } %>
-    </tbody>
-</table>
+<div>
+    <form id="form-user">
+        <span>用户名：</span>
+        <input type="text" name="user" required="required">
+        <span>年龄：</span>
+        <input type="number" required="required" name="age">
+        <input type="submit" value="保存">
+    </form>
+</div>
 
+<script src="/users/get.js"></script>
 </body>
 </html>

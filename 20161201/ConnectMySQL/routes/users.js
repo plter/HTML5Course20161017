@@ -32,5 +32,15 @@ router.get("/get", function (req, res) {
     });
 });
 
+router.post("/add", function (req, res) {
+    conn.query(`INSERT INTO users SET ?`, req.body, function (err) {
+        if (!err) {
+            res.json({code: 1, message: "OK"});
+        } else {
+            res.json({code: 2, message: "Can not add user", mysqlError: err});
+        }
+    });
+});
+
 
 module.exports = router;
