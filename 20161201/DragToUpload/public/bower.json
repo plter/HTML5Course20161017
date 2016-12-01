@@ -1,0 +1,6 @@
+{
+  "name": "dragtoupload",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
