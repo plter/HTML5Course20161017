@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<% for(var i = 0;i < files.length;i++){
+    var file = files[i]; %>
+<div>
+    <div><%= file.description %></div>
+    <div><img width="400" src="<%= file.path %>"></div>
+</div>
+<% } %>
+</body>
+</html>
