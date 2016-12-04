@@ -31,18 +31,24 @@
         <% for(var i = 0;i < users.length;i++){
             var user = users[i]; %>
         <tr>
-            <td><%= user.id %></td>
-            <td><%= user.user %></td>
-            <td><%= user.age %></td>
-            <td><a class="btn btn-default btn-delete" href="/users/delete?id=<%= user.id %>">删除</a></td>
+            <form class="form-user">
+                <input type="hidden" name="id" value="<%= user.id %>">
+                <td><%= user.id %></td>
+                <td><input type="text" required="required" name="user" value="<%= user.user %>"></td>
+                <td><input type="number" required="required" name="age" value="<%= user.age %>"></td>
+                <td>
+                    <a class="btn btn-default btn-delete" href="/users/delete?id=<%= user.id %>">删除</a>
+                    <input type="submit" class="btn btn-default" value="修改">
+                </td>
+            </form>
         </tr>
         <% } %>
         </tbody>
     </table>
 </div>
 
-<div>
-    <form id="form-user">
+<div style="margin-top: 10px;">
+    <form id="form-add-user">
         <span>用户名：</span>
         <input type="text" name="user" required="required">
         <span>年龄：</span>

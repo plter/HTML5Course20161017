@@ -3,7 +3,7 @@
  */
 (function () {
 
-    $("#form-user").on("submit", function (e) {
+    $("#form-add-user").on("submit", function (e) {
 
         e.preventDefault();
 
@@ -23,6 +23,22 @@
                 location.reload();
             } else {
                 alert("删除用户失败");
+            }
+        });
+    });
+
+    $(".form-user").submit(function (e) {
+        e.preventDefault();
+
+        $.post("/users/update", {
+            id: this["id"].value,
+            user: this["user"].value,
+            age: this["age"].value
+        }).done(function (data) {
+            if (data.code == 1) {
+                alert("保存成功");
+            } else {
+                alert("更新用户数据失败");
             }
         });
     });
