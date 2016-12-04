@@ -23,7 +23,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.get("/get", function (req, res) {
-    conn.query("SELECT * FROM users", function (err, result) {
+    // conn.query("SELECT * FROM users WHERE id = ?", [1], function (err, result) {
+    conn.query("SELECT * FROM users", [1], function (err, result) {
         if (!err) {
             res.render("users/get", {users: result});
         } else {
@@ -38,6 +39,17 @@ router.post("/add", function (req, res) {
             res.json({code: 1, message: "OK"});
         } else {
             res.json({code: 2, message: "Can not add user", mysqlError: err});
+        }
+    });
+});
+
+router.get("/delete", function (req, res) {
+    conn.query("DELETE FROM users WHERE id = ?", [req.query.id], function (err) {
+        if (!err) {
+            res.json({code: 1, message: "OK"});
+        } else {
+            console.log(err);
+            res.json({code: 2, message: "Can not delete this user"});
         }
     });
 });

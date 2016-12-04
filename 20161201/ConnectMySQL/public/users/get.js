@@ -14,4 +14,16 @@
             console.log(data);
         });
     });
+
+    $(".btn-delete").click(function (e) {
+        e.preventDefault();
+
+        $.get(this.href).done(function (data) {
+            if (data.code == 1) {
+                location.reload();
+            } else {
+                alert("删除用户失败");
+            }
+        });
+    });
 })();
