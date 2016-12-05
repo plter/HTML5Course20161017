@@ -8,9 +8,11 @@ window.ucai = window.ucai || {};
 
     var alertContainer = $("#alert-container");
 
-    ucai.showAlert = function (message) {
+    ucai.showAlert = function (message, alertClass) {
+        alertClass = alertClass || "alert-warning";
+
         alertContainer.html(
-            "<div class='alert alert-warning' role='alert'>" +
+            "<div class='alert " + alertClass + "' role='alert'>" +
             "   <span>" + message + "</span>" +
             "<button type='button' class='close' aria-label='close' data-dismiss='alert'>" +
             "   <span aria-hidden='true'>&times;</span>" +

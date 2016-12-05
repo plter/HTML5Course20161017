@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "md5-js": "^0.0.3"
   }
 }
