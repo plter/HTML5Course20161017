@@ -1,0 +1,31 @@
+<% include ../header.ejs %>
+
+<div class="container">
+    <form>
+        <div class="input-group">
+            <span class="input-group-addon">id：</span>
+            <input required="required" disabled="disabled" type="text" name="id" class="form-control"
+                   value="<%= user.id %>">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">用户名：</span>
+            <input value="<%= user.user %>" required="required" type="text" name="user" class="form-control"
+                   placeholder="用户名">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">年龄：</span>
+            <input value="<%= user.age %>" required="required" type="number" name="age" class="form-control"
+                   placeholder="年龄">
+        </div>
+
+        <div class="input-group">
+            <input type="submit" value="保存" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+
+<script src="/javascripts/users/profile.js"></script>
+
+<% include ../footer.ejs %>
