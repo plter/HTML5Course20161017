@@ -44,4 +44,18 @@ router.get("/users/delete", function (req, res) {
     });
 });
 
+router.post("/users/update", function (req, res) {
+    MongoClient.connect1().then(db => {
+        return db.collection("users").updateOne(
+            {_id: mongo.ObjectId(req.body._id)},
+            {$set: {name: req.body.name, age: req.body.age}}
+        )
+    }).then(result => {
+        res.json({code: 1, message: "Ok"});
+    }).catch(err => {
+        res.json({code: 2, message: "Error"});
+        res.json();
+    });
+});
+
 module.exports = router;

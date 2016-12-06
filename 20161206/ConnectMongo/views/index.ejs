@@ -21,10 +21,16 @@
     <% for(var i = 0;i < users.length;i++){
         var user = users[i]; %>
     <tr>
-        <td><%= user._id %></td>
-        <td><%= user.name %></td>
-        <td><%= user.age %></td>
-        <td><a class="btn-delete" href="/users/delete?_id=<%= user._id %>">删除</a></td>
+        <form class="form-user">
+            <td><input name="_id" style="width: 200px;" disabled="disabled" type="text" required="required"
+                       value="<%= user._id %>"></td>
+            <td><input name="name" type="text" required="required" value="<%= user.name %>"></td>
+            <td><input name="age" type="number" required="required" value="<%= user.age %>"></td>
+            <td>
+                <input type="submit" value="保存">
+                <a class="btn-delete" href="/users/delete?_id=<%= user._id %>">删除</a>
+            </td>
+        </form>
     </tr>
     <% } %>
     </tbody>

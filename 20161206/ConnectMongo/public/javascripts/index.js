@@ -33,4 +33,20 @@
         });
     });
 
+    $(".form-user").submit(function (e) {
+        e.preventDefault();
+
+        $.post("/users/update", {
+            _id: this['_id'].value,
+            name: this['name'].value,
+            age: this['age'].value
+        }).done(function (data) {
+            if (data.code == 1) {
+                alert("保存成功");
+            } else {
+                alert("保存失败");
+            }
+        });
+    });
+
 })();
