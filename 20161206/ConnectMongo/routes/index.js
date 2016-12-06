@@ -29,7 +29,18 @@ router.post("/users/add", function (req, res) {
         res.json({code: 1, message: "Ok"});
     }).catch(err => {
         console.log(err);
-        res.json({code: 2, messgae: "Error"});
+        res.json({code: 2, message: "Error"});
+    });
+});
+
+router.get("/users/delete", function (req, res) {
+    MongoClient.connect1().then(db => {
+        return db.collection("users").deleteOne({_id: mongo.ObjectId(req.query._id)});
+    }).then(function (result) {
+        res.json({code: 1, message: "Ok"});
+    }).catch(err => {
+        console.log(err);
+        res.json({code: 2, message: "Error"});
     });
 });
 

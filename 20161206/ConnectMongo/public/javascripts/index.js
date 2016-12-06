@@ -19,4 +19,18 @@
         });
     });
 
+    $(".btn-delete").click(function (e) {
+        e.preventDefault();
+
+        $.get(this.href).done(function (data) {
+            console.log(data);
+
+            if (data.code == 1) {
+                location.reload();
+            } else {
+                alert("删除失败");
+            }
+        });
+    });
+
 })();
