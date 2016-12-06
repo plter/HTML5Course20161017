@@ -3,10 +3,15 @@ var router = express.Router();
 const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 
+MongoClient.connect1 = function () {
+    return this.connect("mongodb://localhost/mydb");
+};
+
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-    MongoClient.connect("mongodb://localhost/mydb").then(db => {
+    MongoClient.connect1().then(db => {
         return db.collection("users").find().toArray();
     }).then(result => {
         console.log(result);
@@ -14,6 +19,17 @@ router.get('/', function (req, res, next) {
     }).catch(err => {
         console.log(err);
         res.send("Can not connect database");
+    });
+});
+
+router.post("/users/add", function (req, res) {
+    MongoClient.connect1().then(db => {
+        return db.collection("users").insertOne({name: req.body.name, age: req.body.age});
+    }).then(result => {
+        res.json({code: 1, message: "Ok"});
+    }).catch(err => {
+        console.log(err);
+        res.json({code: 2, messgae: "Error"});
     });
 });
 

@@ -3,6 +3,8 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
 
@@ -25,5 +27,13 @@
     <% } %>
     </tbody>
 </table>
+
+<form id="form-add-user">
+    <input type="text" name="name" required="required">
+    <input type="number" name="age" required="required">
+    <input type="submit">
+</form>
+
+<script src="/javascripts/index.js"></script>
 </body>
 </html>
