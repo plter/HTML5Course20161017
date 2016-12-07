@@ -1,0 +1,1 @@
+java -jar C:\Dev\closure-compiler\closure-compiler-v20161201.jar --js_output_file main.min.js --js Hello.js main.js
