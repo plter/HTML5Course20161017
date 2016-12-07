@@ -31,31 +31,52 @@
     function loadData(url) {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                resolve(xhr.responseText);
-            };
-            xhr.onerror = function (err) {
-                reject(err);
+            xhr.onloadend = function (event) {
+                if (xhr.status == 200) {
+                    resolve(xhr.responseText);
+                } else {
+                    reject(event);
+                }
             };
             xhr.open("get", url);
             xhr.send();
         });
     }
 
-    loadData("data.txt").then(function (result) {
-        console.log(result);
+    // loadData("data.txt").then(function (result) {
+    //     console.log(result);
+    //
+    //     return loadData("data1.txt");
+    // }).then(function (result) {
+    //     console.log(result);
+    //
+    //     return loadData("data2.txt");
+    // }).then(function (result) {
+    //     console.log(result);
+    // }).catch(function (error) {
+    //     console.log(error);
+    // });
 
-        return loadData("data1.txt");
-    }).then(function (result) {
-        console.log(result);
+    // Promise.all([
+    //     loadData("data.txt"),
+    //     loadData("data1.txt"),
+    //     loadData("data2.txt")
+    // ]).then(function (result) {
+    //     console.log(result);
+    // }).catch(function (err) {
+    //     console.log(err);
+    // });
 
-        return loadData("data2.txt");
-    }).then(function (result) {
+
+    Promise.race([
+        loadData("data.txt"),
+        loadData("data1.txt"),
+        loadData("data2.txt")
+    ]).then(function (result) {
         console.log(result);
-    }).catch(function (error) {
-        console.log(error);
+    }).catch(function (err) {
+        console.log(err);
     });
-
 
     // new Promise(function (resolve, reject) {
     //     var xhr = new XMLHttpRequest();
