@@ -21,4 +21,18 @@ router.get('/', function (req, res, next) {
     });
 });
 
+router.post("/adduser", function (req, res) {
+    req.models.User.create({
+        user: req.body.user,
+        age: req.body.age
+    }, function (err) {
+        if (!err) {
+            res.json({code: 1, message: "Ok"});
+        } else {
+            console.log(err);
+            res.json({code: 2, message: "Fail", ormError: err});
+        }
+    });
+});
+
 module.exports = router;
