@@ -13,6 +13,7 @@
         <th>id</th>
         <th>用户</th>
         <th>年龄</th>
+        <th>操作</th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
         <td><%= u.id %></td>
         <td><%= u.user %></td>
         <td><%= u.age %></td>
+        <td><a class="btn-delete" href="/delete?id=<%= u.id %>" target="_blank">删除</a></td>
     </tr>
     <% } %>
     </tbody>

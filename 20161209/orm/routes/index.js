@@ -35,4 +35,15 @@ router.post("/adduser", function (req, res) {
     });
 });
 
+router.get("/delete", function (req, res) {
+    req.models.User.find({id: req.query.id}).remove(function (err) {
+        if (!err) {
+            res.json({code: 1, message: "Ok"});
+        } else {
+            console.log(err);
+            res.json({code: 2, ormError: err});
+        }
+    });
+});
+
 module.exports = router;
