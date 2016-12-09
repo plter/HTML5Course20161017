@@ -46,4 +46,25 @@ router.get("/delete", function (req, res) {
     });
 });
 
+router.post("/update", function (req, res) {
+    req.models.User.get(req.body.id, function (err, user) {
+        if (!err) {
+            user.user = req.body.user;
+            user.age = req.body.age;
+            user.save(function (err) {
+                if (!err) {
+                    res.json({code: 1});
+                } else {
+                    console.log(err);
+                    res.json({code: 2});
+                }
+            });
+
+        } else {
+            console.log(err);
+            res.json({code: 2});
+        }
+    });
+});
+
 module.exports = router;

@@ -37,4 +37,22 @@
         });
     });
 
+    $(".form-user").submit(function (e) {
+        e.preventDefault();
+
+        $.post("/update", {
+            id: this['id'].value,
+            user: this['user'].value,
+            age: this['age'].value
+        }).done(function (data) {
+            console.log(data);
+
+            if (data.code == 1) {
+                alert("保存成功");
+            } else {
+                alert("保存失败");
+            }
+        });
+    });
+
 })();

@@ -20,10 +20,15 @@
 
     <% for(let u of users){ %>
     <tr>
-        <td><%= u.id %></td>
-        <td><%= u.user %></td>
-        <td><%= u.age %></td>
-        <td><a class="btn-delete" href="/delete?id=<%= u.id %>" target="_blank">删除</a></td>
+        <form class="form-user">
+            <td><input type="text" name="id" disabled="disabled" required="required" value="<%= u.id %>"></td>
+            <td><input type="text" name="user" required="required" value="<%= u.user %>"></td>
+            <td><input type="number" name="age" required="required" value="<%= u.age %>"></td>
+            <td>
+                <a class="btn-delete" href="/delete?id=<%= u.id %>" target="_blank">删除</a>
+                <input type="submit" value="保存">
+            </td>
+        </form>
     </tr>
     <% } %>
     </tbody>
