@@ -11,7 +11,8 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.css$/, loader: 'style!css'},
-            {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url?limit=100000!img?progressive=true'}
+            {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url?limit=100000!img?progressive=true'},
+            {test: /\.js$/,loader: 'babel-loader'}
         ]
     }
 };

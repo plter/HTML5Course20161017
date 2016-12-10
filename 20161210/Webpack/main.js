@@ -5,18 +5,27 @@
 require("./style.css");
 var imageUrl = require("./image.jpg");
 
-function createDiv() {
+class Main {
 
-    var div = document.createElement("div");
-    div.className = "rect";
-    document.body.appendChild(div);
+    constructor() {
+        this.createDiv();
+        this.createImage();
+    }
+
+
+    createDiv() {
+
+        var div = document.createElement("div");
+        div.className = "rect";
+        document.body.appendChild(div);
+    }
+
+
+    createImage() {
+        var img = document.createElement("img");
+        img.src = imageUrl;
+        document.body.appendChild(img);
+    }
 }
 
-function createImage() {
-    var img = document.createElement("img");
-    img.src = imageUrl;
-    document.body.appendChild(img);
-}
-
-createDiv();
-createImage();
+new Main();
