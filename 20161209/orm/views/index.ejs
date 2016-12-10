@@ -21,11 +21,11 @@
     <% for(let u of users){ %>
     <tr>
         <form class="form-user">
-            <td><input type="text" name="id" disabled="disabled" required="required" value="<%= u.id %>"></td>
+            <td><%= u.getId() %><input type="hidden" name="id" value="<%= u.getId() %>"></td>
             <td><input type="text" name="user" required="required" value="<%= u.user %>"></td>
             <td><input type="number" name="age" required="required" value="<%= u.age %>"></td>
             <td>
-                <a class="btn-delete" href="/delete?id=<%= u.id %>" target="_blank">删除</a>
+                <a class="btn-delete" href="/delete?id=<%= u.getId() %>" target="_blank">删除</a>
                 <input type="submit" value="保存">
             </td>
         </form>

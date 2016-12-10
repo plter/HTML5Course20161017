@@ -36,9 +36,25 @@ router.post("/adduser", function (req, res) {
 });
 
 router.get("/delete", function (req, res) {
-    req.models.User.find({id: req.query.id}).remove(function (err) {
+    // req.models.User.find({_id: req.query.id}).remove(function (err) {
+    //     if (!err) {
+    //         res.json({code: 1, message: "Ok"});
+    //     } else {
+    //         console.log(err);
+    //         res.json({code: 2, ormError: err});
+    //     }
+    // });
+
+    req.models.User.get(req.query.id, function (err, user) {
         if (!err) {
-            res.json({code: 1, message: "Ok"});
+            user.remove(function (err) {
+                if (!err) {
+                    res.json({code: 1, message: "Ok"});
+                } else {
+                    console.log(err);
+                    res.json({code: 2, ormError: err});
+                }
+            });
         } else {
             console.log(err);
             res.json({code: 2, ormError: err});
