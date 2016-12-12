@@ -14,10 +14,6 @@ class ClickCount extends React.Component {
         };
     }
 
-    componentDidMount() {
-
-    }
-
     btnClickedHandler() {
         this.setState({
             count: this.state.count + 1
