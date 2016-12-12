@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Clock from "./Clock";
+import App from "./App"
+import Clock from "./Clock"
 
 
 function HelloWorld() {
@@ -8,7 +9,9 @@ function HelloWorld() {
 }
 
 ReactDOM.render(
-    <Clock backgroundColor="green"/>,
+    <App>
+        <Clock/>
+    </App>,
     document.querySelector("#root")
 );
 
