@@ -31,7 +31,7 @@ class Clock extends React.Component {
     }
 
     render() {
-        return <div>{this.state.timeStr}</div>;
+        return <div style={{backgroundColor: this.props.backgroundColor}}>{this.state.timeStr}</div>;
     }
 }
 
