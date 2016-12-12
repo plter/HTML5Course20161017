@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App"
 import Clock from "./Clock"
+import ClickCount from "./ClickCount"
 
 
 function HelloWorld() {
@@ -11,6 +12,7 @@ function HelloWorld() {
 ReactDOM.render(
     <App>
         <Clock/>
+        <ClickCount/>
     </App>,
     document.querySelector("#root")
 );
