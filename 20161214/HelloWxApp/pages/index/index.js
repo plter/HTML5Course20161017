@@ -23,6 +23,12 @@ btnShowMyPageClicked:function(){
   })
 },
 
+btnShowRectPageClicked:function(){
+  wx.navigateTo({
+    url: '../RectPage/RectPage'
+  })
+},
+
   onLoad: function () {
     console.log('onLoad')
     var that = this

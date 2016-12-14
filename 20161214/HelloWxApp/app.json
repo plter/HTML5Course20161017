@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/MyPage/MyPage"
+    "pages/MyPage/MyPage",
+    "pages/RectPage/RectPage"
   ],
   "window":{
     "backgroundTextStyle":"light",
