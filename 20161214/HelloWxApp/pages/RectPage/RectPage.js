@@ -18,23 +18,25 @@ Page({
     return this.context.getActions();
   },
 
-  onReady: function () {
-    // 页面渲染完成
-
-    setInterval(() => {
+  startRenderer: function () {
+    this._timerId = setInterval(() => {
       wx.drawCanvas({
         canvasId: 'game',
         actions: this.getActions()
       })
     }, 20);
   },
-  onShow: function () {
-    // 页面显示
+
+  stopRenderer:function(){
+    clearInterval(this._timerId);
   },
-  onHide: function () {
-    // 页面隐藏
+
+  onReady: function () {
+    // 页面渲染完成
+    this.startRenderer();
   },
   onUnload: function () {
     // 页面关闭
+    this.stopRenderer();
   }
 })
