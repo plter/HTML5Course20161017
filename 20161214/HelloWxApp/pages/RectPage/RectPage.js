@@ -1,32 +1,40 @@
 // pages/RectPage/RectPage.js
+
+var Rect = require("./Rect");
+
 Page({
-  data:{},
-  onLoad:function(options){
+  data: {},
+  onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
+
+    this.context = wx.createContext();
+    this._rect = new Rect();
   },
-  onReady:function(){
+
+  getActions: function () {
+    this.context.clearActions();
+    this._rect.draw(this.context);
+
+    return this.context.getActions();
+  },
+
+  onReady: function () {
     // 页面渲染完成
 
-    var context = wx.createContext();
-    
-    context.setFillStyle("#ff0000");
-    context.beginPath();
-    context.rect(0,0,100,100);
-    context.closePath();
-    context.fill();
-
-    wx.drawCanvas({
-      canvasId: 'game',
-      actions: context.getActions()
-    })
+    setInterval(() => {
+      wx.drawCanvas({
+        canvasId: 'game',
+        actions: this.getActions()
+      })
+    }, 20);
   },
-  onShow:function(){
+  onShow: function () {
     // 页面显示
   },
-  onHide:function(){
+  onHide: function () {
     // 页面隐藏
   },
-  onUnload:function(){
+  onUnload: function () {
     // 页面关闭
   }
 })
