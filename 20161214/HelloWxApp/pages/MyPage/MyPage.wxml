@@ -1,0 +1,4 @@
+<view>
+    <text>Count:{{count}}</text>
+    <button bindtap="btnClicked">Click me</button>
+</view>

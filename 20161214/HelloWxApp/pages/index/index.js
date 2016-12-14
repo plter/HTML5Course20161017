@@ -10,13 +10,17 @@ Page({
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
-    })
+    });
   },
 
 btnShowMyPageClicked:function(){
-  wx.showToast({
-    title:"Button clicked"
-  });
+  // wx.showToast({
+  //   title:"Button clicked"
+  // });
+
+  wx.navigateTo({
+    url: '../MyPage/MyPage'
+  })
 },
 
   onLoad: function () {
