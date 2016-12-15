@@ -4,6 +4,8 @@
 const Renderer = require("../../Renderer");
 const Container = require("../../Container");
 const Rect = require("../../Rect");
+const Text = require("../../Text");
+const Card = require("../../Card");
 
 
 Page({
@@ -12,10 +14,19 @@ Page({
         this._root = new Container();
         this._context = wx.createContext();
 
-        this._rect = new Rect(100, 100, "#0000ff");
-        this._rect.x = 100;
+        this._rect = new Card(50, 50, 2);
+        this._rect.x = 0;
         this._root.addChild(this._rect);
     },
+
+    canvasTapHandler: function (event) {
+        if (this._rect.rectoVisible) {
+            this._rect.showVerso();
+        } else {
+            this._rect.showRecto();
+        }
+    },
+
     onReady: function () {
         console.log("onReady");
 

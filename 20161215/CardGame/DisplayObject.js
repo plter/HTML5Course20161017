@@ -7,13 +7,16 @@ class DisplayObject {
     constructor() {
         this._x = 0;
         this._y = 0;
+        this._visible = true;
     }
 
     render(context) {
-        context.save();
-        context.translate(this.x, this.y);
-        this.onDraw(context);
-        context.restore();
+        if (this.visible) {
+            context.save();
+            context.translate(this.x, this.y);
+            this.onDraw(context);
+            context.restore();
+        }
     }
 
     onDraw(context) {
@@ -33,6 +36,14 @@ class DisplayObject {
 
     set y(value) {
         this._y = value;
+    }
+
+    get visible() {
+        return this._visible;
+    }
+
+    set visible(value) {
+        this._visible = value;
     }
 }
 
