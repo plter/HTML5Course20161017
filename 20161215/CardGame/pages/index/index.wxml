@@ -1,2 +1,4 @@
 <!--index.wxml-->
-<canvas canvas-id="game" bindtap="canvasTapHandler"></canvas>
+<view class="container">
+    <canvas class="game" canvas-id="game" bindtap="canvasTapHandler"></canvas>
+</view>

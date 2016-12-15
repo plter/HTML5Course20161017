@@ -10,13 +10,14 @@ class Card extends Container {
 
     constructor(width, height, num) {
         super();
+        this._num = num;
 
         this._width = width;
         this._height = height;
 
         //create recto
         this._recto = new Container();
-        this._recto.addChild(new Rect(width, height, "#ff0000"));
+        this._recto.addChild(new Rect(width - 2, height - 2, "#ff0000"));
         this._text = new Text(num + "", 30, "#ffffff");
         this._text.x = 17;
         this._text.y = 5;
@@ -24,7 +25,7 @@ class Card extends Container {
         this.addChild(this._recto);
 
         //create verso
-        this._verso = new Rect(width, height, "#0000ff");
+        this._verso = new Rect(width - 2, height - 2, "#0000ff");
         this.addChild(this._verso);
 
         this.showRecto();
@@ -38,6 +39,18 @@ class Card extends Container {
     showVerso() {
         this._verso.visible = true;
         this._recto.visible = false;
+    }
+
+    /**
+     * 判断该卡片是否与某一点重叠，该点为相对于canvas的位置
+     * @param x
+     * @param y
+     */
+    hitTestPoint(x, y) {
+        return x > this.x &&
+            y > this.y &&
+            x < this.x + this.width &&
+            y < this.y + this.height
     }
 
     get rectoVisible() {
@@ -59,6 +72,10 @@ class Card extends Container {
 
     set height(value) {
         this._height = value;
+    }
+
+    get num() {
+        return this._num;
     }
 }
 

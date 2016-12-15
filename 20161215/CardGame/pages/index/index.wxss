@@ -19,3 +19,8 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.game{
+    width:250px;
+    height:300px;
+}
