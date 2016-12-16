@@ -2,7 +2,7 @@
  * Created by plter on 2016/12/16.
  */
 
-angular.module("app", []).controller("main", function ($scope) {
+angular.module("app", []).controller("main", function ($scope, $interval) {
     $scope.word = "Hello";
 
     $scope.students = [
@@ -11,4 +11,10 @@ angular.module("app", []).controller("main", function ($scope) {
         {name: "王五", age: 5},
         {name: "赵六", age: 2}
     ];
+
+    $scope.count = 0;
+
+    $interval(function () {
+        $scope.count++;
+    }, 1000);
 });

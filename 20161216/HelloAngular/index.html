@@ -10,6 +10,8 @@
 <body ng-controller="main">
 {{word}}
 
+<div>Count:{{count}}</div>
+
 <ul ng-if="students&&students.length>0">
     <li ng-repeat="s in students">
         名字：{{s.name}}，年龄：{{s.age}}
