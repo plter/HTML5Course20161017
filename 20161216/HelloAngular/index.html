@@ -9,5 +9,11 @@
 </head>
 <body ng-controller="main">
 {{word}}
+
+<ul ng-if="students&&students.length>0">
+    <li ng-repeat="s in students">
+        名字：{{s.name}}，年龄：{{s.age}}
+    </li>
+</ul>
 </body>
 </html>
