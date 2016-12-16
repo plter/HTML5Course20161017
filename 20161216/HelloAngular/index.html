@@ -10,7 +10,9 @@
 <body ng-controller="main">
 {{word}}
 
-<div>Count:{{count}}</div>
+<div>Count:<span ng-bind="count"></span></div>
+<div>{{text}}</div>
+<input type="text" ng-model="text">
 
 <ul ng-if="students&&students.length>0">
     <li ng-repeat="s in students">

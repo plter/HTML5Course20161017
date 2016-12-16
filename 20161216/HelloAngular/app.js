@@ -13,6 +13,7 @@ angular.module("app", []).controller("main", function ($scope, $interval) {
     ];
 
     $scope.count = 0;
+    $scope.text = "Hello World";
 
     $interval(function () {
         $scope.count++;
