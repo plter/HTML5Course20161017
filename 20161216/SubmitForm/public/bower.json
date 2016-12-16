@@ -1,0 +1,6 @@
+{
+  "name": "submit-form",
+  "dependencies": {
+    "angular": "^1.6.0"
+  }
+}

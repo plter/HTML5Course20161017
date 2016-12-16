@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="main">
+<form ng-submit="formSubmitHandler()">
+    <label>
+        <span>名字</span>
+        <input type="text" ng-model="name" required="required">
+    </label>
+    <input type="submit">
+</form>
+
+<div>结果：{{responseValue}}</div>
+</body>
+</html>
