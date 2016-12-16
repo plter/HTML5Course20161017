@@ -2,6 +2,10 @@
 
 ##作业安排
 
+20161216 
+
+1. 使用Angularjs写出科目一考试程序
+
 20161214
 
 1. 写一个《卡片记忆》微信小程序游戏，效果参考：[https://plter.github.io/LearnJS/h5demos/CardsMemory/](https://plter.github.io/LearnJS/h5demos/CardsMemory/)
