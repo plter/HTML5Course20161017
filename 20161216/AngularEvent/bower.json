@@ -1,0 +1,6 @@
+{
+  "name": "angular-event",
+  "dependencies": {
+    "angular": "^1.6.0"
+  }
+}
