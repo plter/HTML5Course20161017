@@ -2,6 +2,10 @@
 
 ##作业安排
 
+20161217
+
+1. 使用Angularjs+Bootstrap+Nodejs写出一个简单的问答平台，请参考：[https://github.com/plter/ask](https://github.com/plter/ask)
+
 20161216 
 
 1. 使用Angularjs写出科目一考试程序
