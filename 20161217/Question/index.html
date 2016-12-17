@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="main">
+<div>得分：{{score}}</div>
+<div>
+    <form>
+        <div>{{currentQuestion.title}}</div>
+        <ul>
+            <li ng-repeat="a in currentQuestion.answers">
+                <label>
+                    <input type="radio" name="answer" value="{{a.tag}}">
+                    <span>{{a.answer}}</span>
+                </label>
+            </li>
+        </ul>
+    </form>
+</div>
+<button ng-if="questionIndex<questions.length-1" ng-click="btnNextClicked()">下一题</button>
+<button ng-if="questionIndex==questions.length-1&&!scoreSubmited" ng-click="btnSubmitClicked()">提交</button>
+</body>
+</html>
